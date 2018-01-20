@@ -6,4 +6,11 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>blogforum-search-facade</artifactId>
+  
+  <dependencies>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-common</artifactId>
+		</dependency>
+  </dependencies>
 </project>

@@ -6,4 +6,22 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>blogforum-search-dao</artifactId>
+  
+  <dependencies>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-search-common</artifactId>
+		</dependency>
+		
+  		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-search-facade</artifactId>
+		</dependency>
+		
+  		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-search-integration</artifactId>
+		</dependency>
+  </dependencies>
+  
 </project>
