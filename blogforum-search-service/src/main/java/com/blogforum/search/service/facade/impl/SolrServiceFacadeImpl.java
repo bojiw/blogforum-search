@@ -5,7 +5,7 @@ import com.blogforum.search.common.enums.ServiceEnum;
 import com.blogforum.search.common.utils.Preconditions;
 import com.blogforum.search.facade.model.Page;
 import com.blogforum.search.facade.model.RequestQuerySearch;
-import com.blogforum.search.facade.note.SolrServiceFacade;
+import com.blogforum.search.facade.service.SolrServiceFacade;
 import com.blogforum.search.service.manager.query.QueryServerFactory;
 
 public class SolrServiceFacadeImpl implements SolrServiceFacade {

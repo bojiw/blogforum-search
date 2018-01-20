@@ -1,4 +1,4 @@
-package com.blogforum.search.facade.note;
+package com.blogforum.search.facade.service;
 
 import com.blogforum.common.model.Result;
 import com.blogforum.search.facade.model.Page;
