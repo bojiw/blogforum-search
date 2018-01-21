@@ -4,8 +4,8 @@ import org.apache.commons.lang3.StringUtils;
 
 public enum ServiceEnum {
 
-	NOTE_QUERY("note_query", "noteQueryHandler", "笔记solr库查询服务"), 
-	BOOK_QUERY("book_query", "bookQueryHandler","笔记本solr库查询服务");
+	NOTE_QUERY("note_search", "noteQueryHandler", "笔记solr库查询服务"), 
+	BOOK_QUERY("book_search", "bookQueryHandler","笔记本solr库查询服务");
 
 	private String	serverName;
 

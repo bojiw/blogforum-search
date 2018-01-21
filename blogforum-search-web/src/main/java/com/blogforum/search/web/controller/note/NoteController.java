@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.blogforum.common.tools.blogforumResult;
-import com.blogforum.search.facade.model.NoteSolrVO;
+import com.blogforum.search.facade.model.NoteSearchVO;
 import com.blogforum.search.facade.model.SearchPage;
 import com.blogforum.search.facade.model.RequestQuerySearch;
 import com.blogforum.search.service.note.NoteSolrQueryService;

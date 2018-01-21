@@ -11,7 +11,7 @@ import com.alibaba.fastjson.JSON;
 import com.blogforum.search.common.exception.SearchBusinessException;
 import com.blogforum.search.common.utils.LoggerUtil;
 import com.blogforum.search.dao.solr.SolrClient;
-import com.blogforum.search.facade.model.NoteSolrVO;
+import com.blogforum.search.facade.model.NoteSearchVO;
 import com.blogforum.search.facade.model.SearchPage;
 import com.blogforum.search.facade.model.RequestQuerySearch;
 import com.blogforum.search.service.note.NoteSolrQueryService;
@@ -57,7 +57,7 @@ public class NoteSolrQueryServiceImpl implements NoteSolrQueryService {
 		//把请求页数 页数大小 还有能查询到的总条数通过page的构造函数计算出当前分页的状况
 		SearchPage page = new SearchPage(pageNo,pageSize,results.getNumFound());
 		for (SolrDocument solrDocument : results) {
-			NoteSolrVO noteSolrVO = new NoteSolrVO();
+			NoteSearchVO noteSolrVO = new NoteSearchVO();
 			noteSolrVO.setId((String) solrDocument.get("id"));
 			noteSolrVO.setNoteBookId((String) solrDocument.get("note_book_id"));
 			noteSolrVO.setNoteTitle((String) solrDocument.get("note_title"));

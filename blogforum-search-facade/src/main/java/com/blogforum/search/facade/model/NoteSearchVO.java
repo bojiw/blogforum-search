@@ -2,7 +2,7 @@ package com.blogforum.search.facade.model;
 
 import java.util.Date;
 
-public class NoteSolrVO extends SuperVO {
+public class NoteSearchVO extends SuperVO {
 
 	/**
 	 * 
