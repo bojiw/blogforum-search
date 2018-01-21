@@ -1,7 +1,7 @@
 package com.blogforum.search.facade.service;
 
 import com.blogforum.common.model.Result;
-import com.blogforum.search.facade.model.Page;
+import com.blogforum.search.facade.model.SearchPage;
 import com.blogforum.search.facade.model.RequestQuerySearch;
 
 public interface SolrServiceFacade {
@@ -14,7 +14,7 @@ public interface SolrServiceFacade {
 	 * @author: wwd
 	 * @time: 2018年1月13日
 	 */
-	Result<Page> query(RequestQuerySearch request);
+	Result<SearchPage> query(RequestQuerySearch request);
 	
 
 }

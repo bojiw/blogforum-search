@@ -1,6 +1,6 @@
 package com.blogforum.search.service.note;
 
-import com.blogforum.search.facade.model.Page;
+import com.blogforum.search.facade.model.SearchPage;
 import com.blogforum.search.facade.model.RequestQuerySearch;
 
 /**
@@ -16,6 +16,6 @@ public interface NoteSolrQueryService {
 	 * @author: wwd
 	 * @time: 2018年1月13日
 	 */
-	Page defaultQuery(RequestQuerySearch request);
+	SearchPage defaultQuery(RequestQuerySearch request);
 
 }

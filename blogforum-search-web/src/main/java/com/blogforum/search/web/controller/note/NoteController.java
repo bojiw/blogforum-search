@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.blogforum.common.tools.blogforumResult;
 import com.blogforum.search.facade.model.NoteSolrVO;
-import com.blogforum.search.facade.model.Page;
+import com.blogforum.search.facade.model.SearchPage;
 import com.blogforum.search.facade.model.RequestQuerySearch;
 import com.blogforum.search.service.note.NoteSolrQueryService;
 
@@ -29,7 +29,7 @@ public class NoteController {
 		querySearch.setKeyword(keyword);
 		querySearch.setFilters(filterkey, filterValue);
 		
-		Page defaultQuery = noteSolrQueryService.defaultQuery(querySearch);
+		SearchPage defaultQuery = noteSolrQueryService.defaultQuery(querySearch);
 		return blogforumResult.ok(defaultQuery);
 	}
 

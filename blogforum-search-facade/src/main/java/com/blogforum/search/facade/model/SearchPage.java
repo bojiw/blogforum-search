@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Page extends SuperVO {
+public class SearchPage extends SuperVO {
 
 	/**
 	 * 
@@ -25,7 +25,7 @@ public class Page extends SuperVO {
 	//扩展函数
 	private Map<String,Object> params=new HashMap<String, Object>();
 
-	public Page(int pageNo,int pageSize,long count) {
+	public SearchPage(int pageNo,int pageSize,long count) {
 		
 		this.pageSize = pageSize;
 		this.count = count;

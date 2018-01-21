@@ -12,7 +12,7 @@ import com.blogforum.search.common.exception.SearchBusinessException;
 import com.blogforum.search.common.utils.LoggerUtil;
 import com.blogforum.search.dao.solr.SolrClient;
 import com.blogforum.search.facade.model.NoteSolrVO;
-import com.blogforum.search.facade.model.Page;
+import com.blogforum.search.facade.model.SearchPage;
 import com.blogforum.search.facade.model.RequestQuerySearch;
 import com.blogforum.search.service.note.NoteSolrQueryService;
 
@@ -21,7 +21,7 @@ public class NoteSolrQueryServiceImpl implements NoteSolrQueryService {
 	private SolrClient noteSolrClent;
 	
 	@Override
-	public Page defaultQuery(RequestQuerySearch request) {
+	public SearchPage defaultQuery(RequestQuerySearch request) {
 		SolrDocumentList results = null;
 		Integer start = 0;
 		Integer rows = null;
@@ -39,7 +39,7 @@ public class NoteSolrQueryServiceImpl implements NoteSolrQueryService {
 			LoggerUtil.error(LOGGER,e, "查询note库失败,request={0}",JSON.toJSONString(request));
 			throw new SearchBusinessException("查询note库失败", e);
 		}
-		Page page = buildNote(results, pageNo, pageSize);
+		SearchPage page = buildNote(results, pageNo, pageSize);
 		return page;
 	}
 
@@ -53,9 +53,9 @@ public class NoteSolrQueryServiceImpl implements NoteSolrQueryService {
 	 * @author: wwd
 	 * @time: 2018年1月14日
 	 */
-	private Page buildNote(SolrDocumentList results,Integer pageNo,Integer pageSize){
+	private SearchPage buildNote(SolrDocumentList results,Integer pageNo,Integer pageSize){
 		//把请求页数 页数大小 还有能查询到的总条数通过page的构造函数计算出当前分页的状况
-		Page page = new Page(pageNo,pageSize,results.getNumFound());
+		SearchPage page = new SearchPage(pageNo,pageSize,results.getNumFound());
 		for (SolrDocument solrDocument : results) {
 			NoteSolrVO noteSolrVO = new NoteSolrVO();
 			noteSolrVO.setId((String) solrDocument.get("id"));

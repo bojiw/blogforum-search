@@ -3,7 +3,7 @@ package com.blogforum.search.service.facade.impl;
 import com.blogforum.common.model.Result;
 import com.blogforum.search.common.enums.ServiceEnum;
 import com.blogforum.search.common.utils.Preconditions;
-import com.blogforum.search.facade.model.Page;
+import com.blogforum.search.facade.model.SearchPage;
 import com.blogforum.search.facade.model.RequestQuerySearch;
 import com.blogforum.search.facade.service.SolrServiceFacade;
 import com.blogforum.search.service.manager.query.QueryServerFactory;
@@ -14,14 +14,14 @@ public class SolrServiceFacadeImpl implements SolrServiceFacade {
 	private QueryServerFactory		queryServerFactory;
 
 	@Override
-	public Result<Page> query(RequestQuerySearch request) {
-		Result<Page> result = new Result<>();
+	public Result<SearchPage> query(RequestQuerySearch request) {
+		Result<SearchPage> result = new Result<>();
 		//效验参数
 		checkVaule(request);
 		String bean = ServiceEnum.getServerBeanByServerName(request.getServiceName());
 		Preconditions.checkNotNull(bean, "找不到对应的服务,serverName{0}=", request.getServiceName());
 		//查询
-		Page query = queryServerFactory.getManager(bean).query(request);
+		SearchPage query = queryServerFactory.getManager(bean).query(request);
 		result.setSuccess(true);
 		result.setResultObj(query);
 		return result;
