@@ -14,11 +14,13 @@
     <dubbo:application name="${dubbo.application.name}" />  
     
     <!-- 注册中心暴露服务地址 -->  
-   <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" />  
+   <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" /> 
+   
+   <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}"/>
    <!-- 启动时找不到服务提供者忽略 -->
    <dubbo:consumer check="false"/>
    
-    <dubbo:service interface="com.blogforum.search.facade.note.SolrServiceFacade"  
+    <dubbo:service interface="com.blogforum.search.facade.service.SolrServiceFacade"  
         ref="solrServiceFacade" retries="3" timeout="3000" />  
     
     <bean id="solrServiceFacade" class="com.blogforum.search.service.facade.impl.SolrServiceFacadeImpl">

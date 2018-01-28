@@ -12,9 +12,11 @@ import org.apache.solr.client.solrj.request.QueryRequest;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocumentList;
 
+import com.blogforum.search.common.constant.SolrQueryConstant;
 import com.blogforum.search.dao.solr.SolrClient;
 import com.blogforum.search.facade.model.RequestQuerySearch;
 import com.blogforum.search.facade.model.SortField;
+import com.blogforum.search.pojo.vo.SolrPage;
 
 public abstract class AbstractSolrClentImpl implements SolrClient {
 	
@@ -31,12 +33,13 @@ public abstract class AbstractSolrClentImpl implements SolrClient {
 	}
 
 	@Override
-	public SolrDocumentList query(Integer start, Integer rows,RequestQuerySearch request) throws Exception {
+	public SolrDocumentList query(SolrPage solrPage ,RequestQuerySearch request) throws Exception {
 		SolrQuery query = new SolrQuery();
 		query.setQuery(request.getKeyword());
-		query.setStart(start);
-		query.setRows(rows);
+		query.setStart(solrPage.getStart());
+		query.setRows(solrPage.getRows());
 		query.addFacetField(request.getFields());
+		query.set(SolrQueryConstant.DEFAULT_QUERY_FIELD, request.getDefaultQueryField());
 		query.addFilterQuery(request.getFilters().toArray(new String[0]));
 		//判断是否需要进行排序
 		if (CollectionUtils.isNotEmpty(request.getSortfields())) {

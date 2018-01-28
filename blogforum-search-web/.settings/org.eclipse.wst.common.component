@@ -18,6 +18,9 @@
         <dependent-module archiveName="blogforum-search-facade-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/blogforum-search-facade/blogforum-search-facade">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="blogforum-search-integration-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/blogforum-search-integration/blogforum-search-integration">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="blogforum-search-pojo-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/blogforum-search-pojo/blogforum-search-pojo">
             <dependency-type>uses</dependency-type>
         </dependent-module>

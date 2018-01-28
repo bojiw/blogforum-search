@@ -13,6 +13,7 @@ import com.blogforum.search.common.utils.LoggerUtil;
 import com.blogforum.search.dao.solr.SolrClient;
 import com.blogforum.search.facade.model.NoteSearchVO;
 import com.blogforum.search.facade.model.SearchPage;
+import com.blogforum.search.pojo.vo.SolrPage;
 import com.blogforum.search.facade.model.RequestQuerySearch;
 import com.blogforum.search.service.note.NoteSolrQueryService;
 
@@ -23,23 +24,16 @@ public class NoteSolrQueryServiceImpl implements NoteSolrQueryService {
 	@Override
 	public SearchPage defaultQuery(RequestQuerySearch request) {
 		SolrDocumentList results = null;
-		Integer start = 0;
-		Integer rows = null;
-		Integer pageNo = request.getPageNo();
-		Integer pageSize = request.getPageSize();
 		try {
 			//把分页参数转换为solr的分页参数
-			if (pageNo > 0) {
-				start = (pageNo - 1)  * pageSize;
-				rows = pageSize;
-			}
+			SolrPage page = new SolrPage(request.getPageNo(), request.getPageSize());
 			//查询
-			results = noteSolrClent.query(start,rows, request);
+			results = noteSolrClent.query(page, request);
 		} catch (Exception e) {
 			LoggerUtil.error(LOGGER,e, "查询note库失败,request={0}",JSON.toJSONString(request));
 			throw new SearchBusinessException("查询note库失败", e);
 		}
-		SearchPage page = buildNote(results, pageNo, pageSize);
+		SearchPage page = buildNote(results, request.getPageNo(), request.getPageSize());
 		return page;
 	}
 

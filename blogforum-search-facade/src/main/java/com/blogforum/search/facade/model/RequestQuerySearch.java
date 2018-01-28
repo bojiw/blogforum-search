@@ -47,6 +47,11 @@ public class RequestQuerySearch extends SuperVO {
 	private List<SortField>		sortfields;
 
 	/**
+	 * 默认搜索域字段
+	 */
+	private String				defaultQueryField;
+
+	/**
 	 * 扩展字段
 	 */
 	private Map<String, Object>	parameter;
@@ -114,6 +119,14 @@ public class RequestQuerySearch extends SuperVO {
 
 	public void setSortfields(List<SortField> sortfields) {
 		this.sortfields = sortfields;
+	}
+
+	public String getDefaultQueryField() {
+		return defaultQueryField;
+	}
+
+	public void setDefaultQueryField(String defaultQueryField) {
+		this.defaultQueryField = defaultQueryField;
 	}
 
 }
